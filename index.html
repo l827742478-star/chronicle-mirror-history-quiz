@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="完成 16 道情境题，从八个性格维度匹配你的中国历史人物原型。"
+    />
+    <meta name="theme-color" content="#f1ede1" />
+    <title>人物志镜｜你的历史人物原型</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span class="brand-seal" aria-hidden="true">鉴</span>
+        <span>
+          <strong>人物志镜</strong>
+          <small>见性格，也见选择</small>
+        </span>
+      </a>
+      <button class="header-action" id="headerRestart" type="button" hidden>重新测试</button>
+    </header>
+
+    <main id="main">
+      <section class="screen home-screen is-active" id="homeScreen" aria-labelledby="homeTitle">
+        <div class="hero-copy">
+          <p class="quiet-kicker">16 道情境题 · 8 个性格维度 · 8 位历史原型</p>
+          <h1 id="homeTitle">如果你生在古代，<br />会以什么方式被记住？</h1>
+          <p class="hero-intro">
+            不是看你经历过什么，而是看你如何理解局势、安放情绪、推动事情发生。
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="startButton" type="button">
+              开始照见自己
+              <span aria-hidden="true">›</span>
+            </button>
+            <button class="text-button" id="continueButton" type="button" hidden>继续上次测试</button>
+            <button class="text-button" id="lastResultButton" type="button" hidden>查看上次结果</button>
+          </div>
+          <p class="privacy-note">无需登录 · 进度只保存在你的浏览器</p>
+        </div>
+
+        <div class="mirror-stage" aria-label="历史人物原型罗盘装饰">
+          <div class="orbit orbit-outer" aria-hidden="true">
+            <span style="--i: 0">苏轼</span>
+            <span style="--i: 1">班昭</span>
+            <span style="--i: 2">郑和</span>
+            <span style="--i: 3">李清照</span>
+            <span style="--i: 4">沈括</span>
+            <span style="--i: 5">王阳明</span>
+            <span style="--i: 6">张骞</span>
+            <span style="--i: 7">王安石</span>
+          </div>
+          <div class="mirror-core">
+            <span class="core-mark">你</span>
+            <small>如何回应世界</small>
+          </div>
+          <div class="compass-lines" aria-hidden="true"></div>
+        </div>
+
+        <div class="method-strip" aria-label="测试特点">
+          <div><strong>不问偏好</strong><span>用真实情境看行动倾向</span></div>
+          <div><strong>不贴标签</strong><span>展示优势，也保留复杂度</span></div>
+          <div><strong>不止一个名字</strong><span>给出完整八维画像与建议</span></div>
+        </div>
+      </section>
+
+      <section class="screen quiz-screen" id="quizScreen" aria-labelledby="questionTitle" hidden>
+        <div class="quiz-shell">
+          <div class="quiz-topline">
+            <button class="back-button" id="backButton" type="button" aria-label="返回上一题">←</button>
+            <div class="progress-copy">
+              <span id="progressText">第 1 / 16 题</span>
+              <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+            </div>
+            <button class="exit-button" id="exitButton" type="button">稍后继续</button>
+          </div>
+
+          <div class="question-panel" aria-live="polite">
+            <p class="scene-label" id="sceneLabel"></p>
+            <h2 id="questionTitle" tabindex="-1"></h2>
+            <p class="question-hint">选更像你平时会做的，不必选择“最好”的答案。</p>
+            <div class="answers" id="answers" role="radiogroup" aria-labelledby="questionTitle"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen result-screen" id="resultScreen" aria-labelledby="resultTitle" hidden>
+        <div id="resultMount"></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <footer class="site-footer">
+      <p>本测试用于自我观察与趣味交流，不构成专业心理评估或历史评价。</p>
+      <p>人物志镜 · 原创互动测试</p>
+    </footer>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
